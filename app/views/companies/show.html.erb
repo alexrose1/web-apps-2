@@ -1,1 +1,24 @@
 <%# TODO: company details page %>
+
+<h1>
+<%= @company["name"] %> 
+</h1>
+
+<h1>
+<%= @company["city"] %> 
+</h1>
+<h1>
+<%= @company["state"] %> 
+</h1>
+<p>
+ <a href="/companies"> Back to all companies </a>
+</p>
+
+<% @contacts = Contact.where("company_id" => @company["id"])%>
+<li>
+    <% for contact in @contacts %>
+        <li>
+        <%= "#{contact["first_name"]} #{contact["last_name"]}" %>
+
+        </li>
+        <% end %>% 
